@@ -48,7 +48,6 @@ class Router: RouterProtocol {
             guard let forecastViewController = assemblyBuilder?.createMenuForecastModule(router: self) else {return}
             guard let newsViewController = assemblyBuilder?.createNewsTableModule(router: self) else {return}
             guard let window = self.window else { return }
-            forecastViewController.title = ""
             navigationControllerForecast.viewControllers = [forecastViewController]
             navigationControllerForecast.title = "Forecast"
             navigationControllerNews.viewControllers = [newsViewController]

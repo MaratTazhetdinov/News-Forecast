@@ -36,6 +36,7 @@ class MapForecastView: UIViewController {
         self.view.addSubview(googleMapView)
         
         setupRC()
+        presenter.updateData()
     }
     
     func setupRC() {

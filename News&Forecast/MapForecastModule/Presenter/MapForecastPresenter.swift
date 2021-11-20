@@ -16,6 +16,7 @@ protocol MapForecastViewProtocol: AlertedViewProtocol {
 
 protocol MapForecastPresenterProtocol: AnyObject {
     func setCoordinate(_ coordinate: CLLocationCoordinate2D)
+    func updateData()
 }
 
 class MapForecastPresenter: MapForecastPresenterProtocol {
@@ -31,7 +32,6 @@ class MapForecastPresenter: MapForecastPresenterProtocol {
         self.view = view
         self.router = router
         self.service = service
-        self.updateData()
     }
     
     func setCoordinate(_ coordinate: CLLocationCoordinate2D) {
