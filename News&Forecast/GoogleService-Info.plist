@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>411059421176-qlgvkh9oc41jc0na4gbuab3h7dg3fl0a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.411059421176-qlgvkh9oc41jc0na4gbuab3h7dg3fl0a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCMjmvDgMb0x_r8B4gPh3OB76b13WZvtaA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>411059421176</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tms.News-Forecast</string>
+	<key>PROJECT_ID</key>
+	<string>news-forecast-1dd6e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>news-forecast-1dd6e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:411059421176:ios:f72444613b92d84e1d200d</string>
+</dict>
+</plist>
