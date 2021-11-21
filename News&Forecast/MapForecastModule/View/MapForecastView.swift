@@ -36,7 +36,6 @@ class MapForecastView: UIViewController {
         self.view.addSubview(googleMapView)
         
         setupRC()
-        presenter.updateData()
     }
     
     func setupRC() {
@@ -136,6 +135,7 @@ extension MapForecastView: MapForecastViewProtocol {
         annotation.coordinate = coordinate
         annotation.title = data
         appleMapView.addAnnotation(annotation)
+        presenter.updateData()
     }
     
     func showAlert(message: String) {
