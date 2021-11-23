@@ -67,5 +67,3 @@ class MapForecastPresenter: MapForecastPresenterProtocol {
     }
     
 }
-
-

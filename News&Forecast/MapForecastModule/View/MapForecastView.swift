@@ -21,12 +21,15 @@ class MapForecastView: UIViewController {
     var marker: GMSMarker?
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 1000000
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkLocationServices()
+        addAppleMapGesture()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        checkLocationServices()
-        addAppleMapGesture()
         
         //Google Maps
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
@@ -36,6 +39,10 @@ class MapForecastView: UIViewController {
         self.view.addSubview(googleMapView)
         
         setupRC()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     func setupRC() {
@@ -86,6 +93,7 @@ class MapForecastView: UIViewController {
         }
     }
     
+    
     func showSettingsAlert() {
         let alert = UIAlertController(title: nil, message: "Your have to allow use location in settings", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -114,6 +122,7 @@ class MapForecastView: UIViewController {
 extension MapForecastView: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         self.presenter.setCoordinate(coordinate)
+        
     }
 }
 
@@ -137,7 +146,7 @@ extension MapForecastView: MapForecastViewProtocol {
         appleMapView.addAnnotation(annotation)
         presenter.updateData()
     }
-    
+        
     func showAlert(message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -151,8 +160,10 @@ extension MapForecastView: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        appleMapView.setRegion(region, animated: true)
+        if appleMapView.annotations.count == 0 {
+            let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            appleMapView.setRegion(region, animated: true)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
